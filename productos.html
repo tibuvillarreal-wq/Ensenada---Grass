@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tipos de Pasto Sintético</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("SAM_1240-6.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: #2e7d32;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px;
+      background-color: rgba(0, 100, 0, 0.75);
+      color: white;
+      border-bottom: 4px solid #c8e6c9;
+      backdrop-filter: blur(4px);
+    }
+
+    .logo {
+      max-width: 160px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    nav {
+      background-color: #ffffffd0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      border-bottom: 1px solid #a5d6a7;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: #1b5e20;
+    }
+
+    .productos {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.92);
+      border-radius: 14px;
+      box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .producto {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #c8e6c9;
+      border-radius: 10px;
+      background-color: #f9fff9;
+      transition: transform 0.3s ease;
+    }
+
+    .producto:hover {
+      transform: scale(1.02);
+    }
+
+    .producto h3 {
+      margin-top: 0;
+      color: #388e3c;
+    }
+
+    .hora {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.92);
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+      font-size: 1.2em;
+    }
+
+    footer {
+      background-color: rgba(0, 100, 0, 0.85);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Logo Ensenada Grass.png" alt="Logo de la empresa" class="logo" />
+    <p>Tipos de Pasto Sintético</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="productos.html">Productos</a>
+    <a href="servicios.html">Servicios</a>
+  </nav>
+
+  <!-- 🕒 Sección de hora actual -->
+  <div class="hora">
+    <h3>Hora actual</h3>
+    <p id="reloj">Cargando hora...</p>
+  </div>
+
+  <div class="productos">
+    <div class="producto">
+      <h3>Pasto Decorativo</h3>
+      <img src="TEKNO2-1.png" width="950" height="550" alt=""/>
+      <p>Ideal para jardines residenciales, terrazas y áreas de descanso. Textura suave y apariencia natural.</p>
+    </div>
+
+    <div class="producto">
+      <h3>Pasto Deportivo</h3>
+      <img src="sporturf-soccer-pasto-sintetico.jpg" width="950" height="550" alt=""/>
+      <p>Diseñado para canchas de fútbol, tenis y usos intensivos. Alta resistencia y drenaje eficiente.</p>
+    </div>
+
+    <div class="producto">
+      <h3>Pasto Comercial</h3>
+      <img src="Césped-artificial-para-tu-negocio-u-oficina-1.jpg" width="950" height="550" alt=""/>
+      <p>Perfecto para exhibiciones, ferias, oficinas y espacios públicos. Fácil mantenimiento y gran impacto visual.</p>
+    </div>
+
+    <div class="producto">
+      <h3>Pasto para Mascotas</h3>
+      <img src="nota_33_1.jpg" width="950" height="550" alt=""/>
+      <p>Antibacterial, resistente y cómodo para áreas donde conviven animales. Fácil de limpiar y seguro.</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Tu Empresa de Pasto Sintético. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    // 🕒 Mostrar hora actual en tiempo real
+    function actualizarHora() {
+      const ahora = new Date();
+      const opciones = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+        timeZone: 'America/Tijuana' // Zona horaria para Ensenada, México
+      };
+      const horaFormateada = ahora.toLocaleTimeString('es-MX', opciones);
+      const reloj = document.getElementById("reloj");
+      if (reloj) {
+        reloj.textContent = `Hora local: ${horaFormateada}`;
+      }
+    }
+
+    setInterval(actualizarHora, 1000);
+    actualizarHora();
+  </script>
+
+</body>
+</html>

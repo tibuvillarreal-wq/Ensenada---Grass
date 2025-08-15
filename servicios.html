@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios de Pasto Sintético</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("portada_hd_piso_tapetes.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: #2e7d32;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px;
+      background-color: rgba(0, 100, 0, 0.75);
+      color: white;
+      border-bottom: 4px solid #c8e6c9;
+      backdrop-filter: blur(4px);
+    }
+
+    .logo {
+      max-width: 160px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    nav {
+      background-color: #ffffffd0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      border-bottom: 1px solid #a5d6a7;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: #1b5e20;
+    }
+
+    .hora {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.92);
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+      font-size: 1.2em;
+    }
+
+    .servicios {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.92);
+      border-radius: 14px;
+      box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .servicio {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #c8e6c9;
+      border-radius: 10px;
+      background-color: #f9fff9;
+      transition: transform 0.3s ease;
+    }
+
+    .servicio:hover {
+      transform: scale(1.02);
+    }
+
+    .servicio h3 {
+      margin-top: 0;
+      color: #388e3c;
+    }
+
+    footer {
+      background-color: rgba(0, 100, 0, 0.85);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Logo Ensenada Grass.png" alt="Logo de la empresa" class="logo" />
+    <p>Servicios Profesionales en Pasto Sintético</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="productos.html">Productos</a>
+    <a href="servicios.html">Servicios</a>
+  </nav>
+
+  <!-- 🕒 Sección de hora actual -->
+  <div class="hora">
+    <h3>Hora actual</h3>
+    <p id="reloj">Cargando hora...</p>
+  </div>
+
+  <div class="servicios">
+    <h2>Servicios que Ofrecemos</h2>
+
+    <div class="servicio">
+      <h3>Instalación Profesional</h3>
+      <img src="Como-instalar-pasto-sintetico-en-guadalajara.jpg" width="950" height="550" alt=""/>
+      <p>Colocación de pasto sintético en jardines, terrazas, áreas deportivas y comerciales, con nivelación y drenaje adecuado.</p>
+    </div>
+
+    <div class="servicio">
+      <h3>Mantenimiento de Pasto Sintético</h3>
+      <img src="8-5.png" width="950" height="550" alt=""/>
+      <p>Limpieza, cepillado y reparación de áreas desgastadas para prolongar la vida útil del pasto.</p>
+    </div>
+
+    <div class="servicio">
+      <h3>Asesoría Personalizada</h3>
+      <img src="asesoria-tecnica-1024x683-1.jpg" width="950" height="550" alt=""/>
+      <p>Te ayudamos a elegir el tipo de pasto ideal según el uso, clima y estética deseada.</p>
+    </div>
+
+    <h2>Servicios que Podemos Ofrecer</h2>
+
+    <div class="servicio">
+      <h3>Diseño de Espacios Verdes</h3>
+      <img src="beneficios-de-los-espacios-verdes-en-zonas-urbanas.jpg" width="950" height="550" alt=""/>
+      <p>Propuestas visuales y funcionales para integrar pasto sintético con jardinería, iluminación y mobiliario.</p>
+    </div>
+
+    <div class="servicio">
+      <h3>Instalación para Mascotas</h3>
+      <img src="81EIv9GRRPL._AC_SL1500_.jpg" width="950" height="650" alt=""/>
+      <p>Montaje especializado en áreas para mascotas, con materiales antibacteriales y drenaje eficiente.</p>
+    </div>
+
+    <div class="servicio">
+      <h3>Eventos y Exhibiciones</h3>
+      <img src="71J-sl6lVeL.jpg" width="950" height="650" alt=""/>
+      <p>Montaje temporal de pasto sintético para ferias, exposiciones y eventos corporativos.</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Tu Empresa de Pasto Sintético. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    // 🕒 Mostrar hora actual en tiempo real
+    function actualizarHora() {
+      const ahora = new Date();
+      const opciones = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+        timeZone: 'America/Tijuana' // Zona horaria para Ensenada, México
+      };
+      const horaFormateada = ahora.toLocaleTimeString('es-MX', opciones);
+      const reloj = document.getElementById("reloj");
+      if (reloj) {
+        reloj.textContent = `Hora local: ${horaFormateada}`;
+      }
+    }
+
+    setInterval(actualizarHora, 1000);
+    actualizarHora();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tu Empresa de Pasto Sintético</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("pasto-sintetico-monofilamento_venta-al-mayoreo.png") no-repeat center center fixed;
+      background-size: cover;
+      color: #2e7d32;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px;
+      background-color: rgba(0, 100, 0, 0.75);
+      color: white;
+      border-bottom: 4px solid #c8e6c9;
+      backdrop-filter: blur(4px);
+    }
+
+    .logo {
+      max-width: 180px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    nav {
+      background-color: #ffffffd0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      border-bottom: 1px solid #a5d6a7;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: #1b5e20;
+    }
+
+    section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.92);
+      margin: 40px auto;
+      border-radius: 14px;
+      max-width: 1000px;
+      box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    button {
+      background-color: #388e3c;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    button:hover {
+      background-color: #2e7d32;
+      transform: scale(1.05);
+    }
+
+    #mensaje {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #1b5e20;
+    }
+
+    .formulario input,
+    .formulario textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    footer {
+      background-color: rgba(0, 100, 0, 0.85);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Logo Ensenada Grass.png" alt="Logo de la empresa" class="logo"/>
+    <p>Soluciones verdes en pasto sintético</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="productos.html">Productos</a>
+    <a href="servicios.html">Servicios</a>
+  </nav>
+
+  <section class="fade-in" id="hero">
+    <h2>Transforma tus espacios</h2>
+    <p>Instalamos pasto sintético profesional para jardines, terrazas y espacios comerciales con máxima durabilidad y estética.</p>
+    <button onclick="mostrarMensaje()">Solicita una Cotización</button>
+    <div id="mensaje"></div>
+  </section>
+
+  <!-- 🕒 Sección de hora actual -->
+  <section class="fade-in" id="horaActual">
+    <h3>Hora actual</h3>
+    <p id="reloj">Cargando hora...</p>
+  </section>
+
+  <section class="formulario fade-in" id="formulario">
+    <h3>Contáctanos</h3>
+    <input type="text" id="nombre" placeholder="Tu nombre" />
+    <input type="email" id="correo" placeholder="Tu correo electrónico" />
+    <textarea id="mensajeFormulario" placeholder="Escribe tu mensaje aquí..."></textarea>
+    <button onclick="enviarFormulario()">Enviar</button>
+  </section>
+
+  <footer>
+    &copy; 2025 Tu Empresa de Pasto Sintético. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    function mostrarMensaje() {
+      document.getElementById("mensaje").textContent =
+        "¡Gracias por tu interés! Nos pondremos en contacto pronto. 🌱";
+    }
+
+    function enviarFormulario() {
+      const nombre = document.getElementById("nombre").value;
+      const correo = document.getElementById("correo").value;
+      const mensaje = document.getElementById("mensajeFormulario").value;
+
+      if (nombre && correo && mensaje) {
+        alert("¡Formulario enviado con éxito! ✉️");
+      } else {
+        alert("Por favor, completa todos los campos.");
+      }
+    }
+
+    document.addEventListener("scroll", () => {
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      });
+    });
+
+    // 🕒 Mostrar hora actual en tiempo real
+    function actualizarHora() {
+      const ahora = new Date();
+      const opciones = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+        timeZone: 'America/Tijuana' // Zona horaria para Ensenada, México
+      };
+      const horaFormateada = ahora.toLocaleTimeString('es-MX', opciones);
+      const reloj = document.getElementById("reloj");
+      if (reloj) {
+        reloj.textContent = `Hora local: ${horaFormateada}`;
+      }
+    }
+
+    setInterval(actualizarHora, 1000);
+    actualizarHora();
+  </script>
+
+</body>
+</html>
